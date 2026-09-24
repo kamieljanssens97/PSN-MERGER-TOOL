@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<title>PHLIPPO PRODUCTIONS PSN MERGER TOOL</title>
+<link rel="stylesheet" href="style.css" /></head>
+<body>
+  <div id="panel">
+    <div class="app-header">
+      <img src="assets/logo.svg" alt="PHLIPPO PRODUCTIONS PSN MERGER TOOL" class="app-logo" />
+    </div>
+
+    <fieldset>
+      <legend>Input (ontvangen PSN)</legend>
+      <label>Netwerkinterface <select id="inputInterface"><option value="">Automatisch</option></select></label>
+      <label>Multicast adres <input id="inputAddress" value="236.10.10.10" /></label>
+      <label>Poort <input id="inputPort" type="number" value="56565" /></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Output (samengevoegde trackers)</legend>
+      <label>Servernaam <input id="systemName" value="PHLIPPO PRODUCTIONS PSN MERGER TOOL" /></label>
+      <label>Netwerkinterface <select id="outputInterface"><option value="">Automatisch</option></select></label>
+      <label>Multicast adres <input id="outputAddress" value="236.10.10.10" /></label>
+      <label>Poort <input id="outputPort" type="number" value="56565" /></label>
+      <label>Zendfrequentie (Hz) <input id="sendRateHz" type="number" value="30" /></label>
+    </fieldset>
+
+    <div class="buttons">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+    <div id="status">Gestopt</div>
+
+    <fieldset>
+      <legend>Objecten (groepen)</legend>
+      <div id="groupsList" class="groups-list"></div>
+      <button id="addGroupBtn" type="button">+ Nieuw object</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Gedetecteerde trackers (ken elke tracker toe aan een object)</legend>
+      <div id="trackerList" class="tracker-list"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Samengevoegde trackers</legend>
+      <div id="mergedInfo">-</div>
+    </fieldset>
+  </div>
+
+  <div id="viewport"></div>
+
+  <script src="dist/renderer.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "name": "psn-merger",
+  "version": "1.0.0",
+  "description": "Merges multiple PosiStageNet (PSN) trackers into one averaged tracker and re-broadcasts it over multicast, with a live 3D preview.",
+  "main": "main.js",
+  "scripts": {
+    "bundle": "esbuild renderer/renderer.js --bundle --outfile=renderer/dist/renderer.bundle.js --format=iife --platform=browser",
+    "prestart": "npm run bundle",
+    "start": "electron .",
+    "prebuild": "npm run bundle",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.phlippoproductions.psnmerger",
+    "productName": "PHLIPPO PRODUCTIONS PSN MERGER TOOL",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "psn/**/*",
+      "renderer/**/*",
+      "package.json",
+      "!node_modules/**/*",
+      "node_modules/three/package.json",
+      "node_modules/three/build/three.cjs"
+    ],
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ]
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.exe"
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}-Setup.exe"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2"
+  },
+  "dependencies": {
+    "three": "^0.165.0"
+  },
+  "allowScripts": {
+    "electron@31.7.7": true,
+    "esbuild@0.28.2": true
+  }
+}

@@ -1,0 +1,14 @@
+PSN TOOL START UP KJ
+
+powershell starten
+
+
+cd "c:\Users\kamiel.janssens\Documents\Virtual Code KJ\PSN MERGER 2026"
+
+
+dan
+
+
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+npm start
